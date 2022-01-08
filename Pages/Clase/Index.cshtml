@@ -1,0 +1,58 @@
+﻿@page "/"
+@model Aplicatie_Web.Pages.Clase.IndexModel
+
+@{
+    ViewData["Title"] = "Clase";
+}
+
+<h1>Clase</h1>
+<p><a asp-page="Create">Create New</a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Clasa[0].Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clasa[0].Ora_inceperii)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clasa[0].Durata)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clasa[0].Program)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Clasa)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ora_inceperii)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Durata)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Program)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ClasaID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ClasaID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ClasaID">Delete</a>
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+
